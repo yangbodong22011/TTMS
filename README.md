@@ -61,6 +61,6 @@ TTMS`全称`剧院票务管理系统`,分为客户端和服务器端。服务器
 
 # 版本
 
-V1.0
+![](https://img.shields.io/badge/version-V1.0-orange.svg)
 
 
