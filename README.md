@@ -61,6 +61,6 @@
 
 # 版本
 
-![](https://img.shields.io/badge/version-V1.0-orange.svg)(https://github.com/yangbodong22011/TTMS)
+[![](https://img.shields.io/badge/version-V1.0-orange.svg)](https://github.com/yangbodong22011/TTMS)
 
 
