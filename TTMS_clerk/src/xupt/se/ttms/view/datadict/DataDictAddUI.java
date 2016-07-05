@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.datadict;
+package xupt.se.ttms.view.datadict;
 
 import javax.swing.JDialog;
 
@@ -33,10 +33,10 @@ import javax.swing.JTextField;
 
 
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.DataDict;
-import src.xupt.se.ttms.model.Schedule;
-import src.xupt.se.ttms.service.DataDictSrv;
-import src.xupt.se.ttms.view.tmpl.*;
+import xupt.se.ttms.model.DataDict;
+import xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.service.DataDictSrv;
+import xupt.se.ttms.view.tmpl.*;
 
 public class DataDictAddUI extends JDialog implements ActionListener {
 
@@ -65,13 +65,11 @@ public class DataDictAddUI extends JDialog implements ActionListener {
 		setBounds((screen.width-800)/2,(screen.height-600)/2,800,600);
 		
 		DataDictSrv dataDictSrv = new DataDictSrv();
-		List<DataDict> listsAllDataDict = dataDictSrv.FetchAll();
+		List<DataDict> listsAllDataDict = dataDictSrv.Fetch("dict_parent_id =1 or dict_id = 1");
 		String [] parentNode = new String[listsAllDataDict.size()];
-		DataDict dataDict;
 		for(int i=0; i<listsAllDataDict.size(); i++) 
 		{    
-			dataDict = listsAllDataDict.get(i);
-			parentNode[i] = dataDictSrv.Fetch("dict_parent_id = 1").get(0).getName();
+			parentNode[i] = listsAllDataDict.get(i).getName();
 		} 
 		
 		lblSuperId = new JLabel("父类型：");
@@ -132,7 +130,6 @@ public class DataDictAddUI extends JDialog implements ActionListener {
 			getParent().setVisible(true);
 
 		} else if (e.getSource() == btnSave) {
-			System.out.println(1);
 			btnSaveClicked();
 			
 		}
@@ -140,14 +137,14 @@ public class DataDictAddUI extends JDialog implements ActionListener {
 	}
 	
 	protected void btnSaveClicked(){
-		if (txtIndex.getText() != null && txtName.getText() != null
+		if (txtName.getText() != null
 				&& txtValue.getText() != null) {
 			DataDictSrv dictSrv = new DataDictSrv();
-			DataDict ddict=new DataDict();
-			int super_id = new DataDictSrv().Fetch("dict_name = '" + txtSuperId.getSelectedItem() + "'").get(0).getId();
-			ddict.setSuperId(super_id);
-			ddict.setIndex(new DataDictSrv().Fetch("dict_parent_id = " +super_id).get((new DataDictSrv().Fetch("dict_parent_id = " +super_id).size())).getIndex() + 1);
-			
+			DataDict ddict =new DataDict();
+			List<DataDict> super_id = new DataDictSrv().Fetch("dict_name = '" + txtSuperId.getSelectedItem() + "'");
+			List<DataDict> bortherList = new DataDictSrv().Fetch("diat_parent_id = " + super_id.get(0).getId());
+			ddict.setSuperId(super_id.get(0).getId());
+			ddict.setIndex(bortherList.size() +1);
 			ddict.setName(txtName.getText());
 			ddict.setValue(txtValue.getText());
 			dictSrv.add(ddict);

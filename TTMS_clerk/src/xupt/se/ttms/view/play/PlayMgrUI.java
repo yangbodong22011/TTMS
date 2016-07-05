@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.play;
+package xupt.se.ttms.view.play;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,9 +22,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import src.xupt.se.ttms.service.PlaySrv;
-import src.xupt.se.ttms.view.tmpl.*;
-import src.xupt.se.ttms.model.Play;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.view.tmpl.*;
+import xupt.se.ttms.model.Play;
 
 
 public class PlayMgrUI extends JPanel{

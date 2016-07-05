@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.sellticket;
+package xupt.se.ttms.view.sellticket;
 
 import java.awt.Choice;
 import java.awt.Color;
@@ -23,14 +23,21 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import src.xupt.se.ttms.model.*;
-
-import src.xupt.se.ttms.service.*;
-
-import src.xupt.se.ttms.view.schedule.ScheduleTable;
-import src.xupt.se.ttms.view.studio.StudioAddUI;
-import src.xupt.se.ttms.view.studio.StudioEditUI;
-import src.xupt.se.ttms.view.tmpl.MainUITmpl;
+import xupt.se.ttms.model.Play;
+import xupt.se.ttms.model.Sale;
+import xupt.se.ttms.model.SaleItem;
+import xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.model.Ticket;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.service.SaleSrv;
+import xupt.se.ttms.service.ScheduleSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.view.schedule.ScheduleTable;
+import xupt.se.ttms.view.studio.StudioAddUI;
+import xupt.se.ttms.view.studio.StudioEditUI;
+import xupt.se.ttms.view.tmpl.MainUITmpl;
 
 
 public class SellTicketUI extends MainUITmpl {

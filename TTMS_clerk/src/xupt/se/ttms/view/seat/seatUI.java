@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.seat;
+package xupt.se.ttms.view.seat;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -47,8 +47,8 @@ public class seatUI extends JDialog{
 	 */
 	private void initialize(int m, int n, final int studio_id) {
 		
-		setTitle("×ùÎ»¹ÜÀí");
-		Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();//µÃµ½ÆÁÄ»µÄ´óĞ¡ 
+		setTitle("åº§ä½ç®¡ç†");
+		Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();//å¾—åˆ°å±å¹•çš„å¤§å° 
 		setBounds((screen.width-1024)/2,(screen.height-768)/2,1024,768);
 		JPanel seatpanel = new JPanel(new BorderLayout());
 
@@ -62,7 +62,7 @@ public class seatUI extends JDialog{
 		gridLayout.setHgap(2);
 		gridLayout.setVgap(2);
 		sites.setLayout(gridLayout);
-		sites.setOpaque(false); // ÉèÖÃ±³¾°ÎªÍ¸Ã÷
+		sites.setOpaque(false); // è®¾ç½®èƒŒæ™¯ä¸ºé€æ˜
 
 	//	sites.setBounds(105, 120, 510, 300);
 
@@ -105,10 +105,10 @@ public class seatUI extends JDialog{
 //							if(seatStatus == 0)
 //								site. setIcon(siteimgwhite) ;
 //						}else{
-//							JOptionPane.showMessageDialog(null, "×ùÎ»¸üĞÂÊ§°Ü");
+//							JOptionPane.showMessageDialog(null, "åº§ä½æ›´æ–°å¤±è´¥");
 //						}
 //						
-//				}else if(status == 1 || status == -1 || status == 2){//ĞŞ¸Ä×ùÎ»×´Ì¬
+//				}else if(status == 1 || status == -1 || status == 2){//ä¿®æ”¹åº§ä½çŠ¶æ€
 //					
 					seatAddDialog addStud = new seatAddDialog(seat);	
 					addStud.toFront();
@@ -123,7 +123,7 @@ public class seatUI extends JDialog{
 						else if(seatStatus == 0)
 							site. setIcon(siteimgwhite);
 					}else{
-						JOptionPane.showMessageDialog(null, "×ùÎ»¸üĞÂÊ§°Ü");
+						JOptionPane.showMessageDialog(null, "åº§ä½æ›´æ–°å¤±è´¥");
 					}
 			//	}
 			}
@@ -137,10 +137,10 @@ public class seatUI extends JDialog{
 					if(j==0)
 						sites.add(new JLabel("  "));
 					else
-						sites.add(new JLabel(j + "×ù",SwingConstants.CENTER));
+						sites.add(new JLabel(j + "åº§",SwingConstants.CENTER));
 				}else if(j==0){
 					if(i>0)
-						sites.add(new JLabel(i + "ÅÅ",SwingConstants.CENTER));
+						sites.add(new JLabel(i + "æ’",SwingConstants.CENTER));
 				}else{
 					int status = -2;
 					Seat seat = null;
@@ -189,8 +189,8 @@ public class seatUI extends JDialog{
 		}
 		JPanel top = new JPanel(new FlowLayout());
 		top.setBackground(Color.gray);
-		JLabel jLabel = new JLabel("ÒøÄ»",SwingConstants.CENTER);
-		jLabel.setFont(new Font("Î¢ÈíÑÅºÚ Light", Font.BOLD, 30));
+		JLabel jLabel = new JLabel("é“¶å¹•",SwingConstants.CENTER);
+		jLabel.setFont(new Font("å¾®è½¯é›…é»‘ Light", Font.BOLD, 30));
 		jLabel.setForeground(Color.blue);	
 		top.add(jLabel);
 		seatpanel.add(top, BorderLayout.NORTH);
@@ -204,7 +204,7 @@ public class seatUI extends JDialog{
 		
 		JPanel footer = new JPanel(new FlowLayout());
 		
-		JLabel b2 = new JLabel("¿ÉÓÃµÄ×ùÎ»");
+		JLabel b2 = new JLabel("å¯ç”¨çš„åº§ä½");
 		JLabel b1 = new JLabel(siteimggreen);
 		b1.setSize( 150, 30);
 		b2.setSize( 150, 30);
@@ -212,13 +212,13 @@ public class seatUI extends JDialog{
 		footer.add(b2);
 		
 		JLabel b3 = new JLabel(siteimgred);
-		JLabel b4 = new JLabel("Ëğ»µµÄ×ùÎ»");
+		JLabel b4 = new JLabel("æŸåçš„åº§ä½");
 		b3.setSize( 150, 30);
 		b4.setSize( 150, 30);
 		footer.add(b3);
 		footer.add(b4);
 		JLabel b5 = new JLabel(siteimgwhite);
-		JLabel b6 = new JLabel("¿ÕÈ±µÄ×ùÎ»");
+		JLabel b6 = new JLabel("ç©ºç¼ºçš„åº§ä½");
 		b3.setSize( 150, 30);
 		b4.setSize( 200, 30);
 		footer.add(b5);

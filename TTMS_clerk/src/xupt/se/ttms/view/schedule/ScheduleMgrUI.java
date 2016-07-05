@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.schedule;
+package xupt.se.ttms.view.schedule;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -25,12 +25,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Iterator;
 
-import src.xupt.se.ttms.model.Schedule;
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.service.ScheduleSrv;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.view.tmpl.*;
-import src.xupt.se.util.NewClass;
+import xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.service.ScheduleSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.view.tmpl.*;
+import xupt.se.util.NewClass;
 
 
 public class ScheduleMgrUI extends JPanel {

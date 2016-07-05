@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.studio;
+package xupt.se.ttms.view.studio;
 
 import java.awt.Color;
 import java.awt.Label;
@@ -18,10 +18,10 @@ import javax.swing.JTextField;
 import java.util.List;
 import java.util.Iterator;
 
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.view.tmpl.*;
-import src.xupt.se.util.tableJButton;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.view.tmpl.*;
+import xupt.se.util.tableJButton;
 
 
 class StudioTableMouseListener extends MouseAdapter {

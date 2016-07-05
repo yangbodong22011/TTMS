@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.seat;
+package xupt.se.ttms.view.seat;
 
 import javax.swing.JDialog;
 
@@ -27,9 +27,9 @@ import javax.swing.JTextField;
 
 
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.Seat;
-import src.xupt.se.ttms.service.SeatSrv;
-import src.xupt.se.ttms.view.tmpl.*;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.view.tmpl.*;
 
 public class SeatAddUI extends JDialog implements ActionListener {
 

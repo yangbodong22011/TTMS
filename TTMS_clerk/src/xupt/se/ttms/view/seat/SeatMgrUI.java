@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.seat;
+package xupt.se.ttms.view.seat;
 
 import java.awt.Color;
 
@@ -19,9 +19,9 @@ import javax.swing.JTextField;
 import java.util.List;
 import java.util.Iterator;
 
-import src.xupt.se.ttms.model.Seat;
-import src.xupt.se.ttms.service.SeatSrv;
-import src.xupt.se.ttms.view.tmpl.*;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.view.tmpl.*;
 
 class SeatTableMouseListener extends MouseAdapter {
 

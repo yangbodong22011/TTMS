@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.studio;
+package xupt.se.ttms.view.studio;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -24,10 +24,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.service.SeatSrv;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.view.seat.seatUI;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.view.seat.seatUI;
 
 
 
@@ -74,25 +74,25 @@ public class StudioMgrUI extends JPanel implements ActionListener{
 		ca1.setForeground(Color.blue);
 		topPanel.add(ca1);
 		
-		addStuBt = new JButton("添加演出厅");
+		addStuBt = new JButton("添加厅");
 		addStuBt.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 		addStuBt.addActionListener(this);
 		topPanel.add(addStuBt);
-		editStuBt = new JButton("修改演出厅");
+		editStuBt = new JButton("修改厅");
 		editStuBt.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 		editStuBt.addActionListener(this);
 		topPanel.add(editStuBt);
-		delStuBt = new JButton("删除演出厅");
+		delStuBt = new JButton("移除厅");
 		delStuBt.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 		delStuBt.addActionListener(this);
 		topPanel.add(delStuBt);
-		queryJLabel = new JLabel("请输入演出厅名称：");
+		queryJLabel = new JLabel("请输入厅名称：");
 		queryJLabel.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 		topPanel.add(queryJLabel);
 		inputTextField = new JTextField(10);
 	//	inputTextField.setBounds(220, screen.height - 45, 200, 30);
 		topPanel.add(inputTextField);
-		queryStuBt = new JButton("查找演出厅");
+		queryStuBt = new JButton("查找");
 		queryStuBt.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 		queryStuBt.addActionListener(this);
 		topPanel.add(queryStuBt);

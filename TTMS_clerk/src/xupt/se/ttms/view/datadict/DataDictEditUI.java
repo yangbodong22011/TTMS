@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.datadict;
+package xupt.se.ttms.view.datadict;
 
 import javax.swing.JDialog;
 
@@ -23,9 +23,9 @@ import javax.swing.JTextField;
 
 
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.DataDict;
-import src.xupt.se.ttms.service.DataDictSrv;
-import src.xupt.se.ttms.view.datadict.DataDictAddUI;
+import xupt.se.ttms.model.DataDict;
+import xupt.se.ttms.service.DataDictSrv;
+import xupt.se.ttms.view.datadict.DataDictAddUI;
 
 public class DataDictEditUI extends DataDictAddUI{
 
@@ -51,7 +51,6 @@ public class DataDictEditUI extends DataDictAddUI{
 			DataDict ddict=new DataDict();
 			ddict.setId(id);
 			ddict.setSuperId(dictSrv.Fetch("dict_name = '" + txtSuperId.getSelectedItem().toString() + "'").get(0).getSuperId()); 
-			ddict.setIndex(Integer.parseInt(txtIndex.getText()));
 			ddict.setName(txtName.getText());  
 			ddict.setValue(txtValue.getText()); 
 

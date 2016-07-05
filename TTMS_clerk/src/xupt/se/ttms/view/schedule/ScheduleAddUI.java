@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.schedule;
+package xupt.se.ttms.view.schedule;
 
 import javax.swing.JDialog;
 
@@ -24,14 +24,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import src.xupt.se.ttms.model.Play;
-import src.xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.model.Play;
+import xupt.se.ttms.model.Schedule;
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.service.PlaySrv;
-import src.xupt.se.ttms.service.ScheduleSrv;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.view.tmpl.*;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.service.ScheduleSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.view.tmpl.*;
 
 public class ScheduleAddUI extends JDialog implements ActionListener {
 

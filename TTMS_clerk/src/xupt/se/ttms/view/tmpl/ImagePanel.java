@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.tmpl;
+package xupt.se.ttms.view.tmpl;
 
 import java.awt.Color;
 

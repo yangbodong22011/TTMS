@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.seat;
+package xupt.se.ttms.view.seat;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +26,7 @@ public class seatAddDialog extends JDialog implements ActionListener{
 
 	private JButton btnCancel, btnSave; 	
 
-	protected boolean rst=false; 				//²Ù×÷½á¹û
+	protected boolean rst=false; 				//æ“ä½œç»“æœ
 	protected int txtId, txtStudioId, txtRow, txtColumn,txtstatus;
 	private JComboBox<Integer> status;
 	private int seatStatus = 0;
@@ -43,9 +43,9 @@ public class seatAddDialog extends JDialog implements ActionListener{
 
 	
 	protected void initContent(){
-		this.setTitle("¹ÜÀí×ùÎ»");
+		this.setTitle("ç®¡ç†åº§ä½");
 		this.setBackground(Color.WHITE);
-		Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();//µÃµ½ÆÁÄ»µÄ´óĞ¡ 
+		Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();//å¾—åˆ°å±å¹•çš„å¤§å° 
 		setBounds((screen.width-300)/2,(screen.height-200)/2,300,200);
 		setLayout(new BorderLayout());
 		JPanel footerJPanel = new JPanel();
@@ -55,10 +55,10 @@ public class seatAddDialog extends JDialog implements ActionListener{
 		status.setSize(60, 30);
 		add(status, BorderLayout.NORTH);
 		
-		btnSave = new JButton("±£´æ");
+		btnSave = new JButton("ä¿å­˜");
 		btnSave.addActionListener(this);
 		footerJPanel.add(btnSave);
-		btnCancel = new JButton("È¡Ïû");
+		btnCancel = new JButton("å–æ¶ˆ");
 		btnCancel.addActionListener(this);
 		footerJPanel.add(btnCancel);
 

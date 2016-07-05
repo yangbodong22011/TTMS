@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.sale;
+package xupt.se.ttms.view.sale;
 
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import src.xupt.se.ttms.model.Sale;
-import src.xupt.se.ttms.model.SaleItem;
-import src.xupt.se.ttms.model.Ticket;
-import src.xupt.se.ttms.service.SaleSrv;
-import src.xupt.se.ttms.view.sellticket.DoSaleUI;
-import src.xupt.se.ttms.view.sellticket.DoTicketUI;
-import src.xupt.se.ttms.view.tmpl.MainUITmpl;
+import xupt.se.ttms.model.Sale;
+import xupt.se.ttms.model.SaleItem;
+import xupt.se.ttms.model.Ticket;
+import xupt.se.ttms.service.SaleSrv;
+import xupt.se.ttms.view.sellticket.DoSaleUI;
+import xupt.se.ttms.view.sellticket.DoTicketUI;
+import xupt.se.ttms.view.tmpl.MainUITmpl;
 
 public class SaleMgrUI extends MainUITmpl {
 	/**

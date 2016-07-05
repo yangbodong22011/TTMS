@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.clerk;
+package xupt.se.ttms.view.clerk;
 
 
 import javax.swing.JList;
@@ -20,13 +20,13 @@ import java.awt.FlowLayout;
 
 import org.jb2011.lnf.beautyeye.ch3_button.BEButtonUI;
 
-import src.xupt.se.ttms.view.datadict.DataDictMgrUI;
-import src.xupt.se.ttms.view.employee.EmployeeMgrUI;
-import src.xupt.se.ttms.view.play.PlayMgrUI;
-import src.xupt.se.ttms.view.schedule.ScheduleMgrUI;
+import xupt.se.ttms.view.datadict.DataDictMgrUI;
+import xupt.se.ttms.view.employee.EmployeeMgrUI;
+import xupt.se.ttms.view.play.PlayMgrUI;
+import xupt.se.ttms.view.schedule.ScheduleMgrUI;
 
-import src.xupt.se.ttms.view.studio.StudioMgrUI;
-import src.xupt.se.util.TransparentPanel;
+import xupt.se.ttms.view.studio.StudioMgrUI;
+import xupt.se.util.TransparentPanel;
 
 import java.awt.Component;
 

@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.clerk;
+package xupt.se.ttms.view.clerk;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -28,7 +28,7 @@ import javax.swing.SwingConstants;
 
 import org.jb2011.lnf.beautyeye.ch3_button.BEButtonUI;
 
-import src.xupt.se.util.RoundBorder;
+import xupt.se.util.RoundBorder;
 
 
 public class MannagerUI extends JPanel implements ActionListener, ItemListener {
@@ -38,7 +38,7 @@ public class MannagerUI extends JPanel implements ActionListener, ItemListener {
 	private CardLayout card;
 	private JPanel panel;
 	private JButton play_bt, room_bt, analysis_bt, movie_bt, button_1, button;
-	private src.xupt.se.ttms.view.clerk.UiManager uiManager;
+	private UiManager uiManager;
 	private JComboBox<String> comboBox;
 	 /**
 	  *  Create the application.
@@ -102,28 +102,28 @@ public class MannagerUI extends JPanel implements ActionListener, ItemListener {
 				play_bt.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 				panel_1.add(play_bt);
 				play_bt.setToolTipText("");
-				//play_bt.setBorder(new RoundBorder());
+				play_bt.setBorder(new RoundBorder());
 				play_bt.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
 				play_bt.addActionListener(this);
 
 				room_bt = new JButton("\u5F71\u5385\u7BA1\u7406");
 				room_bt.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 				panel_1.add(room_bt);
-				//room_bt.setBorder(new RoundBorder());
+				room_bt.setBorder(new RoundBorder());
 				room_bt.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
 				room_bt.addActionListener(this);
 
 				movie_bt = new JButton("\u5F71\u7247\u7BA1\u7406");
 				movie_bt.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 				panel_1.add(movie_bt);
-				//movie_bt.setBorder(new RoundBorder());
+				movie_bt.setBorder(new RoundBorder());
 				movie_bt.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
 				movie_bt.addActionListener(this);
 
 				analysis_bt = new JButton("售票管理");
 				analysis_bt.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
 				panel_1.add(analysis_bt);
-				//analysis_bt.setBorder(new RoundBorder());
+				analysis_bt.setBorder(new RoundBorder());
 				analysis_bt.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
 				analysis_bt.addActionListener(this);
 				
@@ -131,7 +131,7 @@ public class MannagerUI extends JPanel implements ActionListener, ItemListener {
 				panel_1.add(button_1);
 				button_1.setToolTipText("");
 				button_1.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
-				//button_1.setBorder(new RoundBorder());
+				button_1.setBorder(new RoundBorder());
 				button_1.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
 				button_1.addActionListener(this);
 				
@@ -139,7 +139,7 @@ public class MannagerUI extends JPanel implements ActionListener, ItemListener {
 				panel_1.add(button);
 				button.setToolTipText("");
 				button.setFont(new Font("微软雅黑 Light", Font.BOLD, 16));
-				//button.setBorder(new RoundBorder());
+				button.setBorder(new RoundBorder());
 				button.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
 				button.addActionListener(this);
 																									

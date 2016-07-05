@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.seat;
+package xupt.se.ttms.view.seat;
 
 
 
@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 
 
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.Seat;
-import src.xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.service.SeatSrv;
 
 
 public class SeatEditUI extends SeatAddUI{

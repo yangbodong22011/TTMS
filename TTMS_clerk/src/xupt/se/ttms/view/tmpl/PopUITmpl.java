@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.tmpl;
+package xupt.se.ttms.view.tmpl;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -40,7 +40,7 @@ public class PopUITmpl extends JDialog {
 	}
 
 	/**
-	 * @param
+	 * @param args
 	 */
 //	public static void main(String[] args) {
 //		java.awt.EventQueue.invokeLater(new Runnable() {

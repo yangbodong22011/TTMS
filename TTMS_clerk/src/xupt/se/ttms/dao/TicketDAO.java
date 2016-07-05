@@ -1,12 +1,16 @@
-package src.xupt.se.ttms.dao;
+package xupt.se.ttms.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.sql.ResultSet;
 
-import src.xupt.se.ttms.idao.iTicketDAO;
-import src.xupt.se.ttms.model.Ticket;
-import src.xupt.se.util.DBUtil;
+import javax.swing.border.TitledBorder;
+
+import xupt.se.ttms.idao.iTicketDAO;
+import xupt.se.ttms.model.Ticket;
+import xupt.se.util.DBUtil;
 
 public class TicketDAO implements iTicketDAO {
 	@Override
@@ -27,26 +31,35 @@ public class TicketDAO implements iTicketDAO {
 			db.close(rst);
 			db.close();
 			return 1;
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		return 0;
 	}
-
 	@Override
 	public int update(Ticket ticket) {
 		int rtn=0;
 		try {
-			String sql = "update seat set "
-					+ " seat_id =" + ticket.getSeatId() + ", "
-					+ " sched_id = " +   ticket.getScheduleId() + ", "
+			String sql = "";
+			if(ticket.getLocked_time() != null) {
+				sql += "update ticket set " 
+		            + " seat_id =" + ticket.getSeatId() + ", " 
+					+ " sched_id = " +   ticket.getScheduleId() + ", " 
 					+ " ticket_price = " + ticket.getPrice()  + ", "
 					+ " ticket_status = " + ticket.getStatus() +","
 					+ " ticket_locked_time = '" + ticket.getLocked_time() +"'";
-
+			}else {
+				sql += "update ticket set " 
+			            + " seat_id =" + ticket.getSeatId() + ", " 
+						+ " sched_id = " +   ticket.getScheduleId() + ", " 
+						+ " ticket_price = " + ticket.getPrice()  + ", "
+						+ " ticket_status = " + ticket.getStatus() +","
+						+ " ticket_locked_time = null ";
+			}
 			sql += " where ticket_id = " + ticket.getId();
+			System.out.println(sql);
 			DBUtil db = new DBUtil();
 			db.openConnection();
 			rtn =db.execCommand(sql);
@@ -82,7 +95,7 @@ public class TicketDAO implements iTicketDAO {
 			condt.trim();
 			if (!condt.isEmpty())
 				sql += " where " + condt;
-
+		
 			DBUtil db = new DBUtil();
 			if (!db.openConnection()) {
 				System.out.print("fail to connect database");
@@ -91,7 +104,7 @@ public class TicketDAO implements iTicketDAO {
 			ResultSet rst = db.execQuery(sql);
 			if (rst != null) {
 				while (rst.next()) {
-
+					
 					Ticket ticket = new Ticket();
 					ticket.setId(rst.getInt("ticket_id"));
 					ticket.setSeatId(rst.getInt("seat_id"));
@@ -100,7 +113,7 @@ public class TicketDAO implements iTicketDAO {
 					ticket.setStatus(rst.getInt("ticket_status"));
 					ticket.setLocked_time(rst.getTimestamp("ticket_locked_time"));
 					ticketList.add(ticket);
-
+					
 				}
 			}
 			db.close(rst);
@@ -110,113 +123,9 @@ public class TicketDAO implements iTicketDAO {
 		} finally {
 
 		}
-
+	
 		return ticketList;
 	}
-	public boolean legalselect(Ticket ticket) {
-
-		try {
-			String sql = "select * from ticket  where seat_id = '"+ticket.getSeatId()+"' AND sched_id = '"+ticket.getScheduleId()+"' ";
-
-			System.out.println(sql);
-
-			DBUtil db = new DBUtil();
-			if (!db.openConnection()) {
-				System.out.print("fail to connect database");
-			}
-			ResultSet rst = db.execQuery(sql);
-			if (rst != null) {
-				if(rst.next()) {
-					return false;
-				}
-
-			}
-			db.close(rst);
-			db.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-
-		}
-		return true;
-	}
-
-
-	public List<Ticket> myselect(int id,String date) {
-		List<Ticket> stuList = null;
-		stuList = new LinkedList<Ticket>();
-		try {
-			String sql = "select ticket_id,seat_id,ticket.sched_id,ticket_price from ticket,schedule where ticket.sched_id=schedule.sched_id and schedule.studio_id="+id+" AND sched_time='"+date+"'";
-
-			System.out.println(sql);
-
-			DBUtil db = new DBUtil();
-			if (!db.openConnection()) {
-				System.out.print("fail to connect database");
-				return null;
-			}
-			ResultSet rst = db.execQuery(sql);
-			if (rst != null) {
-				while (rst.next()) {
-					Ticket stu = new Ticket();
-					stu.setId(rst.getInt("ticket_id"));
-					stu.setSeatId(rst.getInt("seat_id"));
-					stu.setScheduleId(rst.getInt("sched_id"));
-					stu.setPrice(rst.getFloat("ticket_price"));
-					//stu.setStatus(rst.getInt("ticket_status"));
-					//stu.setLocked_time(rst.getTimestamp("ticket_locked_time"));
-					stuList.add(stu);
-				}
-			}
-			db.close(rst);
-			db.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-
-		}
-
-		return stuList;
-	}
-	public Ticket myselectoneticket(int seat_id,int sched_id) {
-        Ticket ticket = new Ticket();
-		try {
-			String sql = " select * from ticket where seat_id="+seat_id+" AND sched_id="+sched_id;
-
-			System.out.println(sql);
-
-			DBUtil db = new DBUtil();
-			if (!db.openConnection()) {
-				System.out.print("fail to connect database");
-				return null;
-			}
-			ResultSet rst = db.execQuery(sql);
-			if (rst != null) {
-				while (rst.next()) {
-					Ticket stu = new Ticket();
-					stu.setId(rst.getInt("ticket_id"));
-					stu.setSeatId(rst.getInt("seat_id"));
-					stu.setScheduleId(rst.getInt("sched_id"));
-					stu.setPrice(rst.getFloat("ticket_price"));
-					stu.setStatus(rst.getInt("ticket_status"));
-					//stu.setLocked_time(rst.getTimestamp("ticket_locked_time"));
-					return stu;
-				}
-			}
-			db.close(rst);
-			db.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-
-		}
-
-		return null;
-	}
-
-
-
-
 
 	@Override
 	public int lockTicket(int ID, String time) {
@@ -224,6 +133,7 @@ public class TicketDAO implements iTicketDAO {
 		try {
 			String sql = "update ticket set ticket_status=1, ticket_locked_time='" + time + "'";
 			sql += " where ticket_id = " + ID;
+		
 			DBUtil db = new DBUtil();
 			db.openConnection();
 			rtn =db.execCommand(sql);

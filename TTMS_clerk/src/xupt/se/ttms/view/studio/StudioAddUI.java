@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.studio;
+package xupt.se.ttms.view.studio;
 
 import javax.swing.JDialog;
 
@@ -27,10 +27,10 @@ import javax.swing.JTextField;
 
 
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.service.SeatSrv;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.view.tmpl.*;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.view.tmpl.*;
 
 public class StudioAddUI extends JDialog implements ActionListener, ItemListener {
 

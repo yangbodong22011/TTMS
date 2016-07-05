@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.schedule;
+package xupt.se.ttms.view.schedule;
 
 import javax.swing.JDialog;
 
@@ -10,6 +10,7 @@ import java.awt.event.WindowEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
@@ -21,13 +22,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.plaf.ComboBoxUI;
 
-import src.xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.model.Schedule;
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.service.PlaySrv;
-import src.xupt.se.ttms.service.ScheduleSrv;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.view.studio.StudioAddUI;;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.service.ScheduleSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.view.studio.StudioAddUI;;
 
 public class ScheduleEditUI extends ScheduleAddUI{
 	/**
@@ -44,7 +45,7 @@ public class ScheduleEditUI extends ScheduleAddUI{
 		this.setTitle("修改演出计划");
 		txtStudio_name.setSelectedItem(new StudioSrv().Fetch("studio_id = "+stud.getStudio_id()).get(0).getName());
 		txtPlay_name.setSelectedItem(new PlaySrv().Fetch("play_id = "+stud.getPlay_id()).get(0).getName());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");   
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");   
 		String str = sdf.format(stud.getSched_time());  
 		txtSched_time.setText(str);
 		txtSched_ticket_price.setText(String.valueOf(stud.getSched_ticket_price()));
@@ -57,11 +58,9 @@ public class ScheduleEditUI extends ScheduleAddUI{
 			Schedule stu=new Schedule();
 			stu.setSched_id(ID);
 			stu.setStudio_id(new StudioSrv().Fetch("studio_name = '" + txtStudio_name.getSelectedItem() +"'").get(0).getID());
-			
-			//System.out.println(txtStudio_id.getSelectedItem().toString());
 			stu.setPlay_id(new PlaySrv().Fetch("play_name = '" + txtPlay_name.getSelectedItem() + "'").get(0).getId());
-			java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟   
-			java.util.Date date = null;
+			SimpleDateFormat sdf=new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//小写的mm表示的是分钟   
+			Date date = null;
 			try {
 				date = sdf.parse(txtSched_time.getText());
 			} catch (ParseException e) {
