@@ -159,4 +159,104 @@ public class TicketDAO implements iTicketDAO {
 		}
 		return rtn;
 	}
+	public boolean legalselect(Ticket ticket) {
+		
+				try {
+					String sql = "select * from ticket  where seat_id = '"+ticket.getSeatId()+"' AND sched_id = '"+ticket.getScheduleId()+"' ";
+		
+					System.out.println(sql);
+		
+					DBUtil db = new DBUtil();
+					if (!db.openConnection()) {
+						System.out.print("fail to connect database");
+					}
+					ResultSet rst = db.execQuery(sql);
+					if (rst != null) {
+						if(rst.next()) {
+							return false;
+						}
+		
+					}
+					db.close(rst);
+					db.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+		
+				}
+				return true;
+			}
+	
+	
+			public List<Ticket> myselect(int id,String date) {
+				List<Ticket> stuList = null;
+			stuList = new LinkedList<Ticket>();
+				try {
+					String sql = "select ticket_id,seat_id,ticket.sched_id,ticket_price from ticket,schedule where ticket.sched_id=schedule.sched_id and schedule.studio_id="+id+" AND sched_time='"+date+"'";
+	
+					System.out.println(sql);
+		
+				DBUtil db = new DBUtil();
+					if (!db.openConnection()) {
+						System.out.print("fail to connect database");
+						return null;
+					}
+					ResultSet rst = db.execQuery(sql);
+					if (rst != null) {
+						while (rst.next()) {
+							Ticket stu = new Ticket();
+							stu.setId(rst.getInt("ticket_id"));
+							stu.setSeatId(rst.getInt("seat_id"));
+							stu.setScheduleId(rst.getInt("sched_id"));
+							stu.setPrice(rst.getFloat("ticket_price"));
+							//stu.setStatus(rst.getInt("ticket_status"));
+							//stu.setLocked_time(rst.getTimestamp("ticket_locked_time"));
+							stuList.add(stu);
+						}
+					}
+					db.close(rst);
+					db.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+		
+				}
+		
+				return stuList;
+			}
+			public Ticket myselectoneticket(int seat_id,int sched_id) {
+		        Ticket ticket = new Ticket();
+				try {
+					String sql = " select * from ticket where seat_id="+seat_id+" AND sched_id="+sched_id;
+		
+					System.out.println(sql);
+		
+					DBUtil db = new DBUtil();
+					if (!db.openConnection()) {
+						System.out.print("fail to connect database");
+						return null;
+					}
+					ResultSet rst = db.execQuery(sql);
+					if (rst != null) {
+						while (rst.next()) {
+							Ticket stu = new Ticket();
+							stu.setId(rst.getInt("ticket_id"));
+							stu.setSeatId(rst.getInt("seat_id"));
+						stu.setScheduleId(rst.getInt("sched_id"));
+						stu.setPrice(rst.getFloat("ticket_price"));
+						stu.setStatus(rst.getInt("ticket_status"));
+							//stu.setLocked_time(rst.getTimestamp("ticket_locked_time"));
+							return stu;
+						}
+					}
+					db.close(rst);
+					db.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+		
+				}
+		
+				return null;
+			}
 }
