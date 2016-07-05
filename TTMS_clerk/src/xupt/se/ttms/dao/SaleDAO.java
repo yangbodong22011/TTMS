@@ -34,7 +34,7 @@ public class SaleDAO implements iSaleDAO {
 			con = db.getConn();
 			con.setAutoCommit(false);
 			/*
-			 *  鐢熸垚閿�鍞崟
+			 *  生成销售单
 			 */
 	        String sqlDoSale = "insert into sale(emp_id, sale_time, sale_payment, sale_change, sale_type, sale_status) VALUES(?,?,?,?,1,1)";  
 	        PreparedStatement prep = con.prepareStatement(sqlDoSale, PreparedStatement.RETURN_GENERATED_KEYS);  ;
@@ -48,7 +48,7 @@ public class SaleDAO implements iSaleDAO {
 	            id = rs.getInt(1);  
 	        }
 	        /*
-	         *  鐢熸垚璐﹀崟
+	         *  生成账单
 	         */
 	        if(id>0){
 	        	for(Ticket t : tickets){
@@ -60,7 +60,7 @@ public class SaleDAO implements iSaleDAO {
 		   	
 		        	if(flag==1){
 		    /*
-		     * sale_item鎻掑叆鎴愬姛鍚庯紝灏嗙エ鐨則icket_locked_time set 涓鸿鐢靛奖鏀炬槧缁撴潫鏃堕棿銆�
+		     * sale_item插入成功后，将票的ticket_locked_time set 为该电影放映结束时间。
 		     */
 		        		String sqlUpDataTic = "update ticket set ticket_status = 9, ticket_locked_time = '" + new Timestamp(new ScheduleSrv().Fetch("sched_id = "+t.getScheduleId()).get(0).getSched_time().getTime()  + new PlaySrv().Fetch("play_id = " + new ScheduleSrv().Fetch("sched_id = "+t.getScheduleId()).get(0).getPlay_id()).get(0).getLength() * 60000 ) + "' where ticket_id = " + t.getId();
 			        	int flag2 = db.execCommand(sqlUpDataTic);
