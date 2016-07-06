@@ -1,4 +1,4 @@
-package xupt.se.ttms.view.clerk;
+﻿package xupt.se.ttms.view.clerk;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -83,13 +83,10 @@ public class SaleFrame extends JPanel {
 		add(salePanel,BorderLayout.CENTER);
 		handler = new SellTicketHandler();
 		handler.makeNewSale();
-		
 
 		setLeftPanel();
 		setRightPanel();
 
-		
-		
 		siteimgwhite = new ImageIcon("resource/image/white.png");
 		siteimggreen = new ImageIcon("resource/image/green.png");
 		siteimgred = new ImageIcon("resource/image/red.jpg");
