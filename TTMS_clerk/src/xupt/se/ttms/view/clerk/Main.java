@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.clerk;
+package xupt.se.ttms.view.clerk;
 
 import java.awt.Font;
 
@@ -65,7 +65,7 @@ public class Main {
 	        //TODO exception
 	    }
 		
-		new LoginFrame_1();
+		new LoginFrame();
 
 	}
 }

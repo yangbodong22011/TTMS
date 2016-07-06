@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.play;
+package xupt.se.ttms.view.play;
 
 import javax.swing.JDialog;
 
@@ -25,12 +25,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import src.xupt.se.ttms.model.DataDict;
+import xupt.se.ttms.model.DataDict;
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.Play;
-import src.xupt.se.ttms.service.DataDictSrv;
-import src.xupt.se.ttms.service.PlaySrv;
-import src.xupt.se.ttms.view.tmpl.*;
+import xupt.se.ttms.model.Play;
+import xupt.se.ttms.service.DataDictSrv;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.view.tmpl.*;
 
 import javax.swing.JComboBox;
 

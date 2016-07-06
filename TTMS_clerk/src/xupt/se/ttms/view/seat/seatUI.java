@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.seat;
+package xupt.se.ttms.view.seat;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -24,8 +24,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
-import src.xupt.se.ttms.model.Seat;
-import src.xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.service.SeatSrv;
 
 public class seatUI extends JDialog{
 
@@ -91,36 +91,41 @@ public class seatUI extends JDialog{
 					
 				}
 				
-				if(status == 0){
-						seatAddDialog addStud = new seatAddDialog(i,j,studio_id);	
-						int seatStatus = addStud.getSeatStatus();
-						if(addStud.getReturnStatus()){
-							if(seatStatus == -1)
-							    site. setIcon(siteimgred) ; 
-							if(seatStatus == 1)
-								site. setIcon(siteimggreen) ; 
-							if(seatStatus == 0)
-								site. setIcon(siteimgwhite) ;
-						}else{
-							JOptionPane.showMessageDialog(null, "座位更新失败");
-						}
-						
-				}else if(status == 1 || status == -1 || status == 2){//修改座位状态
-					
-					seatAddDialog addStud = new seatAddDialog(i,j,studio_id);	
-					int seatStatus = addStud.getSeatStatus();
-				
+//				if(status == 0){
+//						seatAddDialog addStud = new seatAddDialog(i,j,studio_id);	
+//						int seatStatus = addStud.getSeatStatus();
+//						addStud.toFront();
+//						addStud.setModal(true);
+//						addStud.setVisible(true);
+//						if(addStud.getReturnStatus()){
+//							if(seatStatus == -1)
+//							    site. setIcon(siteimgred) ; 
+//							if(seatStatus == 1)
+//								site. setIcon(siteimggreen) ; 
+//							if(seatStatus == 0)
+//								site. setIcon(siteimgwhite) ;
+//						}else{
+//							JOptionPane.showMessageDialog(null, "座位更新失败");
+//						}
+//						
+//				}else if(status == 1 || status == -1 || status == 2){//修改座位状态
+//					
+					seatAddDialog addStud = new seatAddDialog(seat);	
+					addStud.toFront();
+					addStud.setModal(true);
+					addStud.setVisible(true);
 					if(addStud.getReturnStatus()){
+						int seatStatus = addStud.getSeatStatus();
 						if(seatStatus == -1)
-						    site. setIcon(siteimgred) ; 
-						if(seatStatus == 1)
-							site. setIcon(siteimggreen) ; 
-						if(seatStatus == 0)
-							site. setIcon(siteimgwhite) ;
+						    site. setIcon(siteimgred); 
+						else if(seatStatus == 1)
+							site. setIcon(siteimggreen); 
+						else if(seatStatus == 0)
+							site. setIcon(siteimgwhite);
 					}else{
 						JOptionPane.showMessageDialog(null, "座位更新失败");
 					}
-				}
+			//	}
 			}
 		};
 

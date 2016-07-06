@@ -1,7 +1,7 @@
 /**
  * 
  */
-package src.xupt.se.ttms.view.tmpl;
+package xupt.se.ttms.view.tmpl;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,8 +19,8 @@ import javax.swing.JButton;
 
 import java.awt.Insets;
 
-import src.xupt.se.ttms.view.system.*;
-import src.xupt.se.ttms.service.LoginedUser;
+import xupt.se.ttms.view.system.*;
+import xupt.se.ttms.service.LoginedUser;
 
 /**
  * @author Administrator

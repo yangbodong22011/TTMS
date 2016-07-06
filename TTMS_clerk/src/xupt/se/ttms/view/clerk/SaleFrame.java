@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.clerk;
+package xupt.se.ttms.view.clerk;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -7,9 +7,12 @@ import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.time.temporal.JulianFields;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,20 +32,21 @@ import javax.swing.SwingConstants;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
 
-import src.xupt.se.ttms.model.Play;
-import src.xupt.se.ttms.model.Schedule;
-import src.xupt.se.ttms.model.Seat;
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.model.Ticket;
-import src.xupt.se.ttms.service.PlaySrv;
-import src.xupt.se.ttms.service.ScheduleSrv;
-import src.xupt.se.ttms.service.SeatSrv;
-import src.xupt.se.ttms.service.SellTicketHandler;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.service.TicketSrv;
-import src.xupt.se.ttms.view.tmpl.MainUITmpl;
-import src.xupt.se.util.NewClass;
+import xupt.se.ttms.model.Play;
+import xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.model.Ticket;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.service.ScheduleSrv;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.service.SellTicketHandler;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.service.TicketSrv;
+import xupt.se.ttms.view.tmpl.MainUITmpl;
+import xupt.se.util.NewClass;
 
 public class SaleFrame extends JPanel {
 
@@ -64,16 +68,14 @@ public class SaleFrame extends JPanel {
 	private ImageIcon siteimgwhite,siteimggreen,siteimgred;
 	private Action act;
 	private List<JButton> selectedSeatList;
-//	@Override
+
 	public SaleFrame(){
 		initContent();
 		this.setVisible(true);
 		
 	}
 	protected void initContent() {
-//		tabPane = new JTabbedPane();
-//		tabPane.setBounds(0, 0, 1024, 590);
-//		setLayout(new BorderLayout());
+
 		Rectangle rect = this.getBounds();
 		this.setLayout(new BorderLayout());
 		salePanel = new JPanel();
@@ -86,11 +88,6 @@ public class SaleFrame extends JPanel {
 		setLeftPanel();
 		setRightPanel();
 
-//		tabPane.addTab("正在上映", salePanel);
-//		tabPane.addTab("即将上映", new JLabel());
-//		tabPane.addTab("全部电影", new JLabel());
-//		this.add(tabPane);
-//		this.validate();
 		
 		
 		siteimgwhite = new ImageIcon("resource/image/white.png");
@@ -99,17 +96,15 @@ public class SaleFrame extends JPanel {
 		
 		selectedSeatList = new LinkedList<JButton>();
 		act = new AbstractAction() {
-			private static final long serialVersionUID = -144569051730123316L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JButton site = (JButton) e.getSource();
 				String name = site.getName();
-				String tmp[] = name.split(",");
-				int i = Integer.valueOf(tmp[0]);
-				int j = Integer.valueOf(tmp[1]);
-	//			System.out.println(i+"|"+j);
-				Seat seat = new SeatSrv().Fetch("seat_id = " + Integer.valueOf(tmp[2])).get(0);
+			
+	
+				Seat seat = new SeatSrv().Fetch("seat_id = " + Integer.valueOf(name)).get(0);
 		
 				Ticket ticket = new Ticket();
 				ticket.setPlayName(new PlaySrv().Fetch("play_id = " + schedule.getPlay_id()).get(0).getName());
@@ -117,16 +112,16 @@ public class SaleFrame extends JPanel {
 				ticket.setSeatId(seat.getId());
 				ticket.setSchedule(schedule);
 				ticket.setSeat(seat);
-				ticket.setPrice((float)schedule.getSched_ticket_price());
-				
+				ticket.setPrice(schedule.getSched_ticket_price());
+				detail.setText("");
 				if (site.getIcon() == siteimgwhite) {
-					
+			
 					selectedSeatList.add(site);
 					handler.addTicket(ticket);
 					site.setIcon(siteimggreen);
 					detail.setText(handler.getInfo());
 				} else if (site.getIcon() == siteimggreen) {
-					detail.setText("");
+			
 					selectedSeatList.remove(site);
 					handler.removeTicket(ticket);
 					site.setIcon(siteimgwhite);
@@ -148,10 +143,10 @@ public class SaleFrame extends JPanel {
 			leftPanel.removeAll();
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("影片");
 		ScheduleSrv service = new ScheduleSrv();
-		List<Schedule> listAll = service.Fetch("");
+		List<Schedule> listAll = service.FetchPlay("");
 		for(int i = 0;i<listAll.size();i++){
 			DefaultMutableTreeNode parent = new DefaultMutableTreeNode(new PlaySrv().Fetch("play_id="+listAll.get(i).getPlay_id()).get(0).getName());
-			root.add(parent);
+			root.add(parent); 
 			List<Schedule> list = service.Fetch("play_id="+listAll.get(i).getPlay_id());
 			if (list.size() > 0) {
 				List<String> dates = new ArrayList<String>();
@@ -176,7 +171,10 @@ public class SaleFrame extends JPanel {
 					}
 				}
 			}
-		}
+				
+			}
+			
+		
 		tree = new JTree(root);
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
 			
@@ -191,23 +189,28 @@ public class SaleFrame extends JPanel {
 		ca1 = new JLabel("售票管理", JLabel.CENTER);
 		ca1.setFont(new Font("宋体", 1, 20));
 		ca1.setForeground(Color.blue);
-		
 		leftPanel.add(ca1, BorderLayout.NORTH);
 		leftPanel.add(tree, BorderLayout.CENTER);
-		salePanel.add(leftPanel, BorderLayout.WEST);
+		salePanel.add(new JScrollPane(leftPanel), BorderLayout.WEST);
 		leftPanel.updateUI();
 		
 	}
-	
+	/*
+	 *  获取选中演出计划已售出的票
+	 */
 	private List<Seat> getTickets(){
-        	System.out.println("schedule:"+schedule.getSched_id());
         	TicketSrv ticketSrv = new TicketSrv();
         	SeatSrv seatSrv = new SeatSrv();
         	List<Seat> seats = new LinkedList<Seat>();
         	List<Ticket> tickets = ticketSrv.Fetch("sched_id = "+ schedule.getSched_id());
         	for(Ticket t : tickets){
         		if(t.getStatus() != 0){
-        			seats.add(seatSrv.Fetch("seat_id = "+t.getSeatId()).get(0));
+        			if(t.getLocked_time() != null && new Date().getTime() >  t.getLocked_time().getTime()) {
+        				t.setLocked_time(null);
+        				new TicketSrv().modify(t);
+        			}else if(t.getLocked_time() != null && new Date().getTime() <  t.getLocked_time().getTime()){
+        				seats.add(seatSrv.Fetch("seat_id = "+t.getSeatId()).get(0));
+        			}
         		}
         	}
         	return seats;
@@ -216,21 +219,24 @@ public class SaleFrame extends JPanel {
 	private void getStudioInfo(DefaultMutableTreeNode node){
 		if(node!=null && node.isLeaf()){
 			schedule = (Schedule)node.getUserObject();
-			System.out.println("stu:"+schedule.getStudio_id());
 			Studio studio = new StudioSrv().Fetch("studio_id = " + (schedule.getStudio_id())).get(0);
 			int row = studio.getRowCount();
 			int col = studio.getColCount();
 			setMiddlePanel(row,col,studio);
+			
 		}
 		
 	}
+	/*
+	 * 生成座位信息
+	 */
 	private void setMiddlePanel(int m, int n, Studio studio) {
 		
-	// 	System.out.println(m+"|"+n+"//"+studio.getName());
+	
 		if(middlePanel == null){
 			middlePanel = new JPanel(new BorderLayout());
-			JScrollPane scrollPane = new JScrollPane(middlePanel);
-			salePanel.add(scrollPane, BorderLayout.CENTER);
+	//		JScrollPane scrollPane = new JScrollPane(middlePanel);
+			salePanel.add(middlePanel, BorderLayout.CENTER);
 		}else{
 			middlePanel.removeAll();
 		}
@@ -253,10 +259,6 @@ public class SaleFrame extends JPanel {
 		sites.setOpaque(false); // 设置背景为透明
 
 
-		
-
-		// 座位标示   -1:无座, 0:待销售   1:锁定   2:已选   9:卖出
-		
 		JButton[][] site = new JButton[m+1][n+1];
 		for (int i = 0; i < m+1; i++) {
 			for (int j = 0; j < n+1; j++) {
@@ -283,7 +285,7 @@ public class SaleFrame extends JPanel {
 							site[i][j] = new JButton(act);
 							site[i][j].setBackground(Color.WHITE);
 							site[i][j].setIcon(siteimgwhite);
-							site[i][j].setName(i + "," + j +","+ seat.getId());
+							site[i][j].setName(seat.getId() + "");
 							sites.add(site[i][j]);
 					} else {
 						sites.add(new JLabel("  "));
@@ -293,7 +295,10 @@ public class SaleFrame extends JPanel {
 			}
 			
 		}
-
+		
+		/*
+		 * 已售出的座位设置为红色
+		 */
 		List<Seat> seats2 = getTickets();
 		for(Seat seat : seats2){
 			if(seat.getSeatStatus() == 1 || seat.getSeatStatus() == 2){
@@ -303,7 +308,7 @@ public class SaleFrame extends JPanel {
 		}
 	
 		middlePanel.add(sites, BorderLayout.CENTER);
-		middlePanel.updateUI();
+		middlePanel.updateUI();;
 	}
 
 	private void setRightPanel() {
@@ -320,7 +325,8 @@ public class SaleFrame extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(handler.doSale()){
-					detail.setText("");
+					detail.setText("");					
+			//		getTickets(curNode);
 					
 					for(JButton s : selectedSeatList){
 						s.setIcon(siteimgred);
@@ -339,7 +345,6 @@ public class SaleFrame extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				handler.clearSale();
 				detail.setText("");
-			//	getTickets(curNode);
 			}
 		});
 		buttons.add(sale);

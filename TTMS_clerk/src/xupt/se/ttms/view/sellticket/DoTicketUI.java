@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.sellticket;
+package xupt.se.ttms.view.sellticket;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -25,11 +25,20 @@ import javax.swing.JTextField;
 
 import com.mysql.fabric.xmlrpc.base.Data;
 
-import src.xupt.se.ttms.model.*;
-import src.xupt.se.ttms.service.*;
-
-import src.xupt.se.ttms.view.tmpl.ImageJPanel;
-import src.xupt.se.ttms.view.tmpl.PopUITmpl;
+import xupt.se.ttms.model.DataDict;
+import xupt.se.ttms.model.Play;
+import xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.model.Ticket;
+import xupt.se.ttms.service.DataDictSrv;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.service.ScheduleSrv;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.service.TicketSrv;
+import xupt.se.ttms.view.tmpl.ImageJPanel;
+import xupt.se.ttms.view.tmpl.PopUITmpl;
 
 
 public class DoTicketUI extends JDialog implements ActionListener {

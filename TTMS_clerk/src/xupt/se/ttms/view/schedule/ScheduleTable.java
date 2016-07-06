@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.schedule;
+package xupt.se.ttms.view.schedule;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,10 +12,10 @@ import java.util.List;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import src.xupt.se.ttms.model.Schedule;
-import src.xupt.se.ttms.service.PlaySrv;
-import src.xupt.se.ttms.service.ScheduleSrv;
-import src.xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.service.ScheduleSrv;
+import xupt.se.ttms.service.StudioSrv;
 
 class ScheduleTableMouseListener extends MouseAdapter {
 

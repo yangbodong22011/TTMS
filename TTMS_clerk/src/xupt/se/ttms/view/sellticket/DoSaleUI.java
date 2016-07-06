@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.sellticket;
+package xupt.se.ttms.view.sellticket;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -20,19 +20,19 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import src.xupt.se.ttms.dao.TicketDAO;
-import src.xupt.se.ttms.model.Employee;
-import src.xupt.se.ttms.model.Sale;
-import src.xupt.se.ttms.model.Schedule;
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.model.Ticket;
-import src.xupt.se.ttms.service.EmployeeSrv;
-import src.xupt.se.ttms.service.SaleSrv;
-import src.xupt.se.ttms.service.SeatSrv;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.service.TicketSrv;
-import src.xupt.se.ttms.view.tmpl.ImageJPanel;
-import src.xupt.se.ttms.view.tmpl.PopUITmpl;
+import xupt.se.ttms.dao.TicketDAO;
+import xupt.se.ttms.model.Employee;
+import xupt.se.ttms.model.Sale;
+import xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.model.Ticket;
+import xupt.se.ttms.service.EmployeeSrv;
+import xupt.se.ttms.service.SaleSrv;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.service.TicketSrv;
+import xupt.se.ttms.view.tmpl.ImageJPanel;
+import xupt.se.ttms.view.tmpl.PopUITmpl;
 
 public class DoSaleUI extends JDialog implements ActionListener {
 
@@ -59,19 +59,11 @@ public class DoSaleUI extends JDialog implements ActionListener {
 
 	public DoSaleUI(List<Ticket> ticketList) {
 	
-		if(ticketList.size() == 0){
-		
-			JOptionPane.showMessageDialog(null, "请先出票，再生成账单！");
-			
-			this.dispose();
-			
-		}else{
-		//	System.out.println(ticketList.size());
 			this.ticketList = new LinkedList<Ticket>();
 			this.ticketList  = ticketList;
-			System.out.println("已出票：ticket_id:" + ticketList.get(0).getId());
+	//		System.out.println("已出票：ticket_id:" + ticketList.get(0).getId());
 			initContent();
-		}
+		
 	
 	}
 

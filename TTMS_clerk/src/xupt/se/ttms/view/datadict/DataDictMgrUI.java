@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.datadict;
+package xupt.se.ttms.view.datadict;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,10 +20,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Iterator;
 
-import src.xupt.se.ttms.dao.DataDictDAO;
-import src.xupt.se.ttms.model.DataDict;
-import src.xupt.se.ttms.service.DataDictSrv;
-import src.xupt.se.ttms.view.tmpl.*;
+import xupt.se.ttms.dao.DataDictDAO;
+import xupt.se.ttms.model.DataDict;
+import xupt.se.ttms.service.DataDictSrv;
+import xupt.se.ttms.view.tmpl.*;
 
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -392,6 +392,14 @@ public class DataDictMgrUI extends JPanel {
 		if (addDict.getReturnStatus()) {
 			showTable();
 		}
+		
+		DataDictTable tms = new DataDictTable(ddict);
+		Object[] in = { "id", "superid", "index", "name", "value" };
+		List<DataDict> dictList = new LinkedList<DataDict>();
+		new DataDictSrv().Fetch("");
+		tms.showTable(jDictTable,jsc, in, dictList);
+		jsc.repaint();
+		splitPane.repaint();
 	}
 
 	private void btnModClicked() {
@@ -404,6 +412,14 @@ public class DataDictMgrUI extends JPanel {
 		if (modDict.getReturnStatus()) {
 			showTable();
 		}
+		
+		DataDictTable tms = new DataDictTable(ddict);
+		Object[] in = { "id", "superid", "index", "name", "value" };
+		List<DataDict> dictList = new LinkedList<DataDict>();
+		new DataDictSrv().Fetch("");
+		tms.showTable(jDictTable,jsc, in, dictList);
+		jsc.repaint();
+		splitPane.repaint();
 	}
 
 	private void btnDelClicked() {

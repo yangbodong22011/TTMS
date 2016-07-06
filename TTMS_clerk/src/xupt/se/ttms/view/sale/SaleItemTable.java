@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.sale;
+package xupt.se.ttms.view.sale;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -8,7 +8,7 @@ import java.util.List;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import src.xupt.se.ttms.model.SaleItem;
+import xupt.se.ttms.model.SaleItem;
 
 
 class SaleItemTableMouseListener extends MouseAdapter {

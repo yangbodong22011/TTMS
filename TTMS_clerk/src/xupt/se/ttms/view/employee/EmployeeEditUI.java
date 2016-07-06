@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.employee;
+package xupt.se.ttms.view.employee;
 
 import javax.swing.JDialog;
 
@@ -18,12 +18,12 @@ import javax.swing.JTextField;
 
 
 
-import src.xupt.se.ttms.model.Employee;
+import xupt.se.ttms.model.Employee;
 //import view.studioUI.ImageJPanel;
-import src.xupt.se.ttms.model.Studio;
-import src.xupt.se.ttms.service.EmployeeSrv;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.view.studio.StudioAddUI;;
+import xupt.se.ttms.model.Studio;
+import xupt.se.ttms.service.EmployeeSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.view.studio.StudioAddUI;;
 
 public class EmployeeEditUI extends EmployeeAddUI{
 	private int ID;

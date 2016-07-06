@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.sellticket;
+package xupt.se.ttms.view.sellticket;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -15,15 +15,15 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import src.xupt.se.ttms.model.Schedule;
-import src.xupt.se.ttms.model.Seat;
-import src.xupt.se.ttms.model.Ticket;
-import src.xupt.se.ttms.service.PlaySrv;
-import src.xupt.se.ttms.service.ScheduleSrv;
-import src.xupt.se.ttms.service.SeatSrv;
-import src.xupt.se.ttms.service.StudioSrv;
-import src.xupt.se.ttms.service.TicketSrv;
-import src.xupt.se.ttms.view.tmpl.ImageJPanel;
+import xupt.se.ttms.model.Schedule;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.model.Ticket;
+import xupt.se.ttms.service.PlaySrv;
+import xupt.se.ttms.service.ScheduleSrv;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.service.StudioSrv;
+import xupt.se.ttms.service.TicketSrv;
+import xupt.se.ttms.view.tmpl.ImageJPanel;
 
 public class DoTicket1UI extends JDialog implements ActionListener {
 

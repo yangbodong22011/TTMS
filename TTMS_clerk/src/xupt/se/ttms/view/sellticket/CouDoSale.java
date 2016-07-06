@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.sellticket;
+package xupt.se.ttms.view.sellticket;
 
 import java.text.DateFormat;
 import java.util.LinkedList;
@@ -6,10 +6,10 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import src.xupt.se.ttms.model.Sale;
-import src.xupt.se.ttms.model.Ticket;
-import src.xupt.se.ttms.service.SaleSrv;
-import src.xupt.se.ttms.service.TicketSrv;
+import xupt.se.ttms.model.Sale;
+import xupt.se.ttms.model.Ticket;
+import xupt.se.ttms.service.SaleSrv;
+import xupt.se.ttms.service.TicketSrv;
 
 public class CouDoSale {
 	private List<Ticket>  ticketList= null;

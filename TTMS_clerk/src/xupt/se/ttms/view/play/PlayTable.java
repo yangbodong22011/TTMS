@@ -1,7 +1,7 @@
-package src.xupt.se.ttms.view.play;
+package xupt.se.ttms.view.play;
 
-import src.xupt.se.ttms.model.Play;
-import src.xupt.se.ttms.service.DataDictSrv;
+import xupt.se.ttms.model.Play;
+import xupt.se.ttms.service.DataDictSrv;
 
 import javax.swing.*;
 

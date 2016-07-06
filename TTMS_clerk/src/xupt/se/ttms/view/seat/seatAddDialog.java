@@ -1,4 +1,4 @@
-package src.xupt.se.ttms.view.seat;
+package xupt.se.ttms.view.seat;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import src.xupt.se.ttms.model.Seat;
-import src.xupt.se.ttms.service.SeatSrv;
-import src.xupt.se.ttms.view.tmpl.ImageJPanel;
+import xupt.se.ttms.model.Seat;
+import xupt.se.ttms.service.SeatSrv;
+import xupt.se.ttms.view.tmpl.ImageJPanel;
 
 public class seatAddDialog extends JDialog implements ActionListener{
 
@@ -27,16 +27,17 @@ public class seatAddDialog extends JDialog implements ActionListener{
 	private JButton btnCancel, btnSave; 	
 
 	protected boolean rst=false; 				//操作结果
-	protected int txtStudioId, txtRow, txtColumn,txtstatus;
+	protected int txtId, txtStudioId, txtRow, txtColumn,txtstatus;
 	private JComboBox<Integer> status;
 	private int seatStatus = 0;
 	public seatAddDialog() {
 		//initContent(row,col);
 	}
-	public seatAddDialog(int row,int col , int studioId) {
-		this.txtStudioId = studioId;
-		this.txtRow = row;
-	    this.txtColumn = col;
+	public seatAddDialog(Seat seat) {
+		this.txtId = seat.getId();
+		this.txtStudioId = seat.getStudioId();
+		this.txtRow = seat.getRow();
+	    this.txtColumn = seat.getColumn();
 		initContent();
 	}
 
@@ -90,16 +91,15 @@ public class seatAddDialog extends JDialog implements ActionListener{
 		
 			SeatSrv seatSrv = new SeatSrv();
 			Seat seat=new Seat();
+			seat.setId(txtId);
 			seat.setStudioId(txtStudioId);
 			seat.setRow(txtRow);
 			seat.setColumn(txtColumn);
 			seat.setSeatStatus(Integer.parseInt(status.getSelectedItem().toString()));
-			seatSrv.add(seat);
+			seatSrv.modify(seat);
 			seatStatus = Integer.parseInt(status.getSelectedItem().toString());
 			rst = true;
 			this.dispose();
-			
-		
 	}
 	public int getSeatStatus() {
 		return seatStatus;
