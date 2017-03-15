@@ -55,10 +55,6 @@
 2：Json时间格式问题  
 
 
-# 待解决的问题
-1：数据库中票加锁问题  
-2：用存储过程、数据库连接池等提高服务器效率。    
-
 # 版本
 
 [![](https://img.shields.io/badge/version-V1.0-orange.svg)](https://github.com/yangbodong22011/TTMS)
